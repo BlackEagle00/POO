@@ -1,0 +1,103 @@
+package mundo;
+import java.util.Scanner;
+
+public class Reloj {
+	
+	int horas = 00, minutos = 00, segundos = 00;
+	
+	public Reloj(int horas, int minutos, int segundos){
+		this.horas = horas;
+		this.minutos = minutos;
+		this.segundos = segundos;
+	}
+
+	public int getHoras() {
+		return horas;
+	}
+
+	public void setHoras(int horas) {
+		this.horas = horas;
+	}
+
+	public int getMinutos() {
+		return minutos;
+	}
+
+	public void setMinutos(int minutos) {
+		this.minutos = minutos;
+	}
+
+	public int getSegundos() {
+		return segundos;
+	}
+
+	public void setSegundos(int segundos) {
+		this.segundos = segundos;
+	}
+	
+	
+	public void mostrarHora () {
+		System.out.println(getHoras()+":"+getMinutos()+":"+getSegundos());
+		System.out.println("Hora: "+ getHoras() + "\n"
+				+ "Minutos: "+ getMinutos() + "\n"
+						+ "Segundos: " + getSegundos());
+	}
+		
+
+	public static void main (String [] args) {
+		Scanner sc = new Scanner (System.in);
+		Reloj reloj = new Reloj(00,00,00);
+		int op;
+		int horaP;
+		do {
+			System.out.println("1. Pedir hora\n"
+					+ "2. Cambiar hora\n"
+					+ "0. Salir");
+			op = sc.nextInt();
+			
+			switch (op) {
+				case 1:
+					reloj.mostrarHora();
+					break;
+				case 2:
+					boolean actualizacion = true;
+					System.out.println("Ingrese la nueva hora: ");
+					horaP = sc.nextInt();
+					if(horaP < 0 || horaP > 23) {
+						actualizacion = false;
+					}else {
+						reloj.setHoras(horaP);
+					}
+					
+					System.out.println("Ingrese los nuevos minutos: ");
+					horaP = sc.nextInt();
+					if(horaP < 0 || horaP > 59) {
+						actualizacion = false;
+					}else {
+						reloj.setMinutos(horaP);
+					}
+					System.out.println("Ingrese los nuevos segundos: ");
+					horaP = sc.nextInt();
+					if(horaP < 0 || horaP > 59) {
+						actualizacion = false;
+					}else {
+						reloj.setSegundos(horaP);
+					}
+					if(actualizacion == true) {
+						System.out.println("Hora correctamente actualizada");
+					}else {
+						System.out.println("Ha habido un error al actualizar la hora");
+					}
+					
+					break;
+				case 0:
+					break;
+				
+			}
+		} while (op != 0);
+			
+	}
+	
+	
+	
+}
