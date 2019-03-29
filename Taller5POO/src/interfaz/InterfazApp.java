@@ -1,4 +1,3 @@
-    
 package interfaz;
 
 import mundo.A;
@@ -8,7 +7,7 @@ public class InterfazApp
 {
  // Relaciones	
     private A mia;
-    private B mib;
+    
 
  // Constructor
     public InterfazApp()
@@ -20,7 +19,9 @@ public class InterfazApp
     	
     	System.out.println("varB = " + mia.getVarB());
     	mia.setVarB(69);
-    	System.out.println("varA = " + mia.getVarB());
+    	System.out.println("varB = " + mia.getVarB());
+    	
+    	System.out.println("byPass() " + mia.byPass());
     }
     
 	public static void main (String [] args) 
